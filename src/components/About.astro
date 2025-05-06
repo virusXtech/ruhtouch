@@ -1,0 +1,77 @@
+---
+import { Award, GraduationCap, BookOpen, Smile } from '@lucide/astro';
+---
+
+<section id="about" class="py-20 bg-white">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <div class="lg:w-1/2">
+        <div class="relative">
+          <div class="absolute -top-6 -left-6 w-24 h-24 bg-teal-100 rounded-full opacity-50"></div>
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-teal-100 rounded-full opacity-50"></div>
+          <div class="relative overflow-hidden rounded-lg shadow-xl">
+            <img 
+              src="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+              alt="Therapist portrait" 
+              class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+      </div>
+      
+      <div class="lg:w-1/2">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About Me</h2>
+        
+        <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+          As a licensed therapist with over a decade of experience, I am dedicated to providing culturally sensitive mental health care that respects and integrates Islamic values and principles.
+        </p>
+        
+        <p class="text-gray-700 text-lg mb-8 leading-relaxed">
+          My approach combines evidence-based therapeutic techniques with an understanding of the unique challenges facing the Muslim community. I create a safe, non-judgmental space where faith and mental health can coexist harmoniously.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex items-start">
+            <div class="p-2 rounded-full bg-teal-100 text-teal-700 mr-4">
+              <GraduationCap class="h-6 w-6" />
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Education</h3>
+              <p class="text-gray-600">Ph.D. in Clinical Psychology</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="p-2 rounded-full bg-teal-100 text-teal-700 mr-4">
+              <Award class="h-6 w-6" />
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Certification</h3>
+              <p class="text-gray-600">Licensed Clinical Psychologist</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="p-2 rounded-full bg-teal-100 text-teal-700 mr-4">
+              <BookOpen class="h-6 w-6" />
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Specialization</h3>
+              <p class="text-gray-600">Faith-based Therapy Approaches</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="p-2 rounded-full bg-teal-100 text-teal-700 mr-4">
+              <Smile class="h-6 w-6" />
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Experience</h3>
+              <p class="text-gray-600">10+ Years in Practice</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
