@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
-export default defineConfig(({ command }) =>({
+export default defineConfig({
 	integrations: [tailwind()],
-	base: command === 'serve' ? '' : '/ruhtouch/',
 });

@@ -323,20 +323,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@example/basics@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@example/basics@workspace:."
-  dependencies:
-    "@astrojs/tailwind": "npm:^5.1.0"
-    "@lucide/astro": "npm:^0.507.0"
-    "@tailwindcss/forms": "npm:^0.5.7"
-    aos: "npm:^2.3.4"
-    astro: "npm:^5.2.5"
-    swiper: "npm:^11.0.5"
-    tailwindcss: "npm:^3.4.1"
-  languageName: unknown
-  linkType: soft
-
 "@img/sharp-darwin-arm64@npm:0.33.5":
   version: 0.33.5
   resolution: "@img/sharp-darwin-arm64@npm:0.33.5"
@@ -3945,6 +3931,20 @@ __metadata:
   checksum: 10c0/11c44b5ef9b3fd521c5501b3f1c36af4ca07821aeff41d41f45336eee324d8f5b46c1a92189f5c8cd146bc21ac10418d57cb4571637ea09aced1ae831a2a4ae0
   languageName: node
   linkType: hard
+
+"ruhtouch@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "ruhtouch@workspace:."
+  dependencies:
+    "@astrojs/tailwind": "npm:^5.1.0"
+    "@lucide/astro": "npm:^0.507.0"
+    "@tailwindcss/forms": "npm:^0.5.7"
+    aos: "npm:^2.3.4"
+    astro: "npm:^5.2.5"
+    swiper: "npm:^11.0.5"
+    tailwindcss: "npm:^3.4.1"
+  languageName: unknown
+  linkType: soft
 
 "run-parallel@npm:^1.1.9":
   version: 1.2.0
