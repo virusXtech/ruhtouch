@@ -2,31 +2,31 @@ export default [
 	{
 		title: 'Family Counseling',
 		description:
-			'Strengthen family bonds through Islamic principles and modern therapeutic approaches',
+			'Strengthen family bonds through Modern evidence based counselling approaches',
 	},
 	{
 		title: 'Youth Intervention',
 		description:
-			'Guide young Muslims through modern challenges while staying true to their faith',
-	},
-	{
-		title: 'Spiritual Therapy',
-		description:
-			'Integrate Islamic teachings with therapeutic practices for holistic healing',
+			'Guide youth through modern challenges while staying true to their principles',
 	},
 	{
 		title: 'Crisis Intervention',
 		description:
-			'Immediate support during difficult times with faith-based coping strategies',
+			'Immediate support during difficult times with Problem focused coping strategies',
 	},
 	{
-		title: 'Psychotherapy',
+		title: 'Individual Counselling',
 		description:
-			'Professional mental health care that respects and incorporates Islamic values',
+			'Professional mental health care that respects and incorporates cultural values',
 	},
 	{
-		title: 'Career Counseling',
+		title: 'Stress Management',
 		description:
-			'Navigate professional growth while maintaining work-life-faith balance',
+			'Navigate growth while maintaining balance in all phases of life',
+	},
+	{
+		title: 'Couples/Marital Counselling',
+		description:
+			'Navigate relationships while working on improving effective communication skills,and resolving conflicts.',
 	},
 ];
