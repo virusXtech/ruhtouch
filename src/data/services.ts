@@ -27,6 +27,6 @@ export default [
 	{
 		title: 'Couples/Marital Counselling',
 		description:
-			'Navigate relationships while working on improving effective communication skills,and resolving conflicts.',
+			'Strengthen your relationships while working on improving effective communication skills,and resolving conflicts.',
 	},
 ];
