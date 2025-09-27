@@ -1,0 +1,12 @@
+node_modules
+dist
+.astro
+*.config.*
+package-lock.json
+yarn.lock
+.yarn
+.yarnrc.yml
+.env
+.env.local
+.env.production
+.env.development

@@ -2,97 +2,97 @@
 import testimonials from '../data/testimonials';
 ---
 
-<section class='py-16 bg-emerald-50'>
-	<div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-		<h2
-			class='text-3xl font-arabic text-center text-emerald-900 mb-12'
-			data-aos='fade-up'
-		>
-			What Our Clients Say
-		</h2>
+<section class="py-16 bg-emerald-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2
+      class="text-3xl font-arabic text-center text-emerald-900 mb-12"
+      data-aos="fade-up"
+    >
+      What Our Clients Say
+    </h2>
 
-		<div class='swiper testimonials-swiper' data-aos='fade-up'>
-			<div class='swiper-wrapper'>
-				{
-					testimonials.map((testimonial) => (
-						<div class='swiper-slide'>
-							<div class='bg-white rounded-xl p-6 shadow-sm mx-4 h-full'>
-								<div class='flex items-center mb-4'>
-									<img
-										src={testimonial.image}
-										alt={testimonial.name}
-										class='w-12 h-12 rounded-full object-cover'
-									/>
-									<div class='ml-4'>
-										<h3 class='font-semibold text-emerald-900'>
-											{testimonial.name}
-										</h3>
-										<p class='text-sm text-gray-600'>{testimonial.role}</p>
-									</div>
-								</div>
-								<blockquote class='text-gray-600 italic'>
-									"{testimonial.content}"
-								</blockquote>
-							</div>
-						</div>
-					))
-				}
-			</div>
-			<div class='swiper-pagination mt-6'></div>
-			<div class='swiper-button-prev !text-emerald-600'></div>
-			<div class='swiper-button-next !text-emerald-600'></div>
-		</div>
-	</div>
+    <div class="swiper testimonials-swiper" data-aos="fade-up">
+      <div class="swiper-wrapper">
+        {
+          testimonials.map(testimonial => (
+            <div class="swiper-slide">
+              <div class="bg-white rounded-xl p-6 shadow-sm mx-4 h-full">
+                <div class="flex items-center mb-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    class="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div class="ml-4">
+                    <h3 class="font-semibold text-emerald-900">
+                      {testimonial.name}
+                    </h3>
+                    <p class="text-sm text-gray-600">{testimonial.role}</p>
+                  </div>
+                </div>
+                <blockquote class="text-gray-600 italic">
+                  "{testimonial.content}"
+                </blockquote>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="swiper-pagination mt-6"></div>
+      <div class="swiper-button-prev !text-emerald-600"></div>
+      <div class="swiper-button-next !text-emerald-600"></div>
+    </div>
+  </div>
 </section>
 
 <script>
-	import Swiper from 'swiper';
-	import 'swiper/css';
-	import 'swiper/css/navigation';
-	import 'swiper/css/pagination';
-	import 'swiper/css/autoplay';
+  import Swiper from 'swiper';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+  import 'swiper/css/autoplay';
 
-	import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
-	new Swiper('.testimonials-swiper', {
-		modules: [Navigation, Pagination, Autoplay],
-		slidesPerView: 1,
-		spaceBetween: 30,
-		loop: true,
-		autoplay: {
-			delay: 5000,
-			disableOnInteraction: true,
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		},
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-		breakpoints: {
-			640: {
-				slidesPerView: 2,
-			},
-			1024: {
-				slidesPerView: 3,
-			},
-		},
-	});
+  new Swiper('.testimonials-swiper', {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+  });
 </script>
 
 <style>
-	.swiper {
-		padding: 20px 40px !important;
-	}
+  .swiper {
+    padding: 20px 40px !important;
+  }
 
-	.swiper-button-next:after,
-	.swiper-button-prev:after {
-		font-size: 20px !important;
-	}
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 20px !important;
+  }
 
-	.swiper-pagination-bullet-active {
-		background: #059669 !important;
-	}
+  .swiper-pagination-bullet-active {
+    background: #059669 !important;
+  }
 </style>

@@ -1,8 +1,8 @@
 ---
 const navItems = [
-  { text: "Home", href: "#home" },
-  { text: "Services", href: "#services" },
-  { text: "About", href: "#about" },
+  { text: 'Home', href: '#home' },
+  { text: 'Services', href: '#services' },
+  { text: 'About', href: '#about' },
 ];
 ---
 
@@ -10,20 +10,23 @@ const navItems = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center py-4">
       <div class="flex items-center">
-        <a href="/" class="text-2xl font-arabic text-emerald-800">
-          RuhTouch
-        </a>
+        <a href="/" class="text-2xl font-arabic text-emerald-800"> RuhTouch </a>
       </div>
-      
+
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-8">
-        {navItems.map(item => (
-          <a href={item.href} class="text-gray-600 hover:text-emerald-700 transition-colors">
-            {item.text}
-          </a>
-        ))}
-        <a 
-          href="#contact" 
+        {
+          navItems.map(item => (
+            <a
+              href={item.href}
+              class="text-gray-600 hover:text-emerald-700 transition-colors"
+            >
+              {item.text}
+            </a>
+          ))
+        }
+        <a
+          href="#contact"
           class="inline-flex items-center justify-center px-6 py-2 border border-transparent rounded-full text-base font-medium text-white bg-emerald-600 hover:bg-emerald-700 transition-all hover:scale-105"
         >
           Contact
@@ -36,28 +39,39 @@ const navItems = [
         class="md:hidden p-2 rounded-md text-gray-600 hover:text-emerald-700 hover:bg-gray-100"
         aria-label="Menu"
       >
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
 
     <!-- Mobile Navigation Menu -->
-    <div 
-      id="mobile-menu" 
+    <div
+      id="mobile-menu"
       class="hidden md:hidden pb-4 transform opacity-0 scale-95 transition-all duration-200 ease-in-out"
     >
       <nav class="flex flex-col space-y-4">
-        {navItems.map(item => (
-          <a
-            href={item.href}
-            class="text-gray-600 hover:text-emerald-700 transition-colors px-2 py-1 rounded-md hover:bg-gray-100"
-          >
-            {item.text}
-          </a>
-        ))}
-        <a 
-          href="#contact" 
+        {
+          navItems.map(item => (
+            <a
+              href={item.href}
+              class="text-gray-600 hover:text-emerald-700 transition-colors px-2 py-1 rounded-md hover:bg-gray-100"
+            >
+              {item.text}
+            </a>
+          ))
+        }
+        <a
+          href="#contact"
           class="inline-flex items-center justify-center px-6 py-2 border border-transparent rounded-full text-base font-medium text-white bg-emerald-600 hover:bg-emerald-700 transition-all hover:scale-105"
         >
           Contact
@@ -92,8 +106,10 @@ const navItems = [
     });
 
     // Close menu when clicking outside
-    document.addEventListener('click', (event) => {
-      const isClickInside = mobileMenuButton.contains(event.target as Node) || mobileMenu.contains(event.target as Node);
+    document.addEventListener('click', event => {
+      const isClickInside =
+        mobileMenuButton.contains(event.target as Node) ||
+        mobileMenu.contains(event.target as Node);
       if (!isClickInside && !mobileMenu.classList.contains('hidden')) {
         mobileMenu.classList.add('opacity-0', 'scale-95');
         setTimeout(() => {
