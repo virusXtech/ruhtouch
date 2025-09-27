@@ -229,35 +229,19 @@
   </div>
 </section>
 
-<script>
+<script lang='js'>
   document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('contact-form') as HTMLFormElement;
-    const submitBtn = document.getElementById(
-      'submit-btn'
-    ) as HTMLButtonElement;
-    const submitText = document.getElementById(
-      'submit-text'
-    ) as HTMLSpanElement;
-    const loadingSpinner = document.getElementById(
-      'loading-spinner'
-    ) as HTMLElement;
-    const messageTextarea = document.getElementById(
-      'message'
-    ) as HTMLTextAreaElement;
-    const charCount = document.getElementById('char-count') as HTMLSpanElement;
-    const formMessages = document.getElementById(
-      'form-messages'
-    ) as HTMLElement;
-    const successMessage = document.getElementById(
-      'success-message'
-    ) as HTMLElement;
-    const errorMessage = document.getElementById(
-      'error-message'
-    ) as HTMLElement;
-    const successText = document.getElementById(
-      'success-text'
-    ) as HTMLSpanElement;
-    const errorText = document.getElementById('error-text') as HTMLSpanElement;
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitText = document.getElementById('submit-text');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const messageTextarea = document.getElementById('message');
+    const charCount = document.getElementById('char-count');
+    const formMessages = document.getElementById('form-messages');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+    const successText = document.getElementById('success-text');
+    const errorText = document.getElementById('error-text');
 
     // Character count for message
     messageTextarea.addEventListener('input', function () {
@@ -274,7 +258,7 @@
     });
 
     // Real-time validation
-    const validateField = (field: HTMLInputElement | HTMLTextAreaElement) => {
+    const validateField = field => {
       const errorElement = document.getElementById(`${field.id}-error`);
       let isValid = true;
       let errorMsg = '';
@@ -347,9 +331,7 @@
 
     // Add blur validation to required fields
     ['name', 'email', 'message'].forEach(fieldId => {
-      const field = document.getElementById(fieldId) as
-        | HTMLInputElement
-        | HTMLTextAreaElement;
+      const field = document.getElementById(fieldId);
       if (field) {
         field.addEventListener('blur', () => validateField(field));
         field.addEventListener('input', () => {
@@ -367,11 +349,9 @@
       e.preventDefault();
 
       // Validate all fields
-      const nameField = document.getElementById('name') as HTMLInputElement;
-      const emailField = document.getElementById('email') as HTMLInputElement;
-      const messageField = document.getElementById(
-        'message'
-      ) as HTMLTextAreaElement;
+      const nameField = document.getElementById('name');
+      const emailField = document.getElementById('email');
+      const messageField = document.getElementById('message');
 
       const isNameValid = validateField(nameField);
       const isEmailValid = validateField(emailField);
@@ -389,9 +369,22 @@
       try {
         const formData = new FormData(form);
 
-        const response = await fetch('/api/contact', {
+        // Convert FormData to JSON for Netlify function
+        const data = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          service: formData.get('service'),
+          message: formData.get('message'),
+          honeypot: formData.get('website'), // honeypot field
+        };
+
+        const response = await fetch('/.netlify/functions/contact', {
           method: 'POST',
-          body: formData,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
         });
 
         const result = await response.json();
@@ -419,7 +412,7 @@
       }
     });
 
-    function setLoadingState(loading: boolean) {
+    function setLoadingState(loading) {
       submitBtn.disabled = loading;
       if (loading) {
         submitText.textContent = 'Sending...';
@@ -430,16 +423,14 @@
       }
     }
 
-    function showSuccess(message: string) {
+    function showSuccess(message) {
       successText.textContent = message;
       successMessage.classList.remove('hidden');
       errorMessage.classList.add('hidden');
       formMessages.classList.remove('hidden');
 
       // Hide the form with smooth animation
-      const formContainer = document.getElementById(
-        'form-container'
-      ) as HTMLElement;
+      const formContainer = document.getElementById('form-container');
       if (formContainer) {
         formContainer.style.opacity = '0';
         formContainer.style.transform = 'translateY(-20px)';
@@ -452,7 +443,7 @@
       formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    function showError(message: string) {
+    function showError(message) {
       errorText.textContent = message;
       errorMessage.classList.remove('hidden');
       successMessage.classList.add('hidden');
@@ -466,9 +457,7 @@
     }
 
     function showForm() {
-      const formContainer = document.getElementById(
-        'form-container'
-      ) as HTMLElement;
+      const formContainer = document.getElementById('form-container');
       if (formContainer) {
         formContainer.style.display = 'block';
         formContainer.style.opacity = '1';
@@ -498,7 +487,7 @@
 
     // Add event listener for "Send Another Message" button
     document.addEventListener('click', function (e) {
-      if (e.target && (e.target as HTMLElement).id === 'send-another-btn') {
+      if (e.target && e.target.id === 'send-another-btn') {
         resetForm();
 
         // Scroll back to form

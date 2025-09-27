@@ -1,11 +1,12 @@
 # 🌿 RuhTouch - Mental Health & Spiritual Wellness Platform
 
-A modern, responsive website for mental health and spiritual counseling services, built with Astro, TypeScript, and Tailwind CSS. Features a secure contact form with advanced spam protection and email notifications.
+A modern, responsive website for mental health and spiritual counseling services, built with Astro, TypeScript, and Tailwind CSS. Features a secure contact form with Netlify Functions for backend processing.
 
 ## ✨ Features
 
 ### 🎨 **Frontend**
 
+- **Static Site Generation**: Lightning-fast loading with Astro static build
 - **Responsive Design**: Mobile-first approach with beautiful animations
 - **Modern UI**: Clean, professional design with Tailwind CSS
 - **Interactive Components**: Smooth animations with AOS (Animate On Scroll)
@@ -13,6 +14,7 @@ A modern, responsive website for mental health and spiritual counseling services
 
 ### 🔒 **Secure Contact Form**
 
+- **Netlify Functions**: Serverless backend with automatic scaling
 - **Advanced Security**: Rate limiting, honeypot protection, input sanitization
 - **Real-time Validation**: Client-side and server-side validation
 - **Professional Emails**: HTML email templates with responsive design
@@ -21,7 +23,8 @@ A modern, responsive website for mental health and spiritual counseling services
 
 ### ⚡ **Performance**
 
-- **Server-Side Rendering**: Astro SSR for optimal performance
+- **Static Site Generation**: Instant page loads and CDN optimization
+- **Serverless Functions**: Contact form processing only when needed
 - **Type Safety**: Full TypeScript implementation
 - **Modern Build**: Optimized for production deployment
 
@@ -46,31 +49,33 @@ A modern, responsive website for mental health and spiritual counseling services
 │   │   └── testimonials.ts # Client testimonials data
 │   ├── layouts/
 │   │   └── Layout.astro  # Base layout with meta tags and scripts
-│   ├── pages/
-│   │   ├── index.astro   # Homepage
-│   │   └── api/          # Server-side API endpoints
-│   │       └── contact.ts # Secure contact form handler
-│   └── utils/
-│       └── emailTemplates.ts # Professional email templates
-├── .env.example          # Environment variables template
-├── .env                  # Your environment configuration
-├── CONTACT_SETUP.md      # Detailed setup instructions
+│   └── pages/
+│       └── index.astro   # Homepage
+├── netlify/
+│   └── functions/
+│       └── contact.js    # Serverless contact form handler
+├── dist/                 # Static build output (generated)
+├── netlify.toml         # Netlify deployment configuration
 └── package.json
 ```
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Astro](https://astro.build) v5.14.1 - Static Site Generator with SSR
+### Frontend
+
+- **Framework**: [Astro](https://astro.build) v5.14.1 - Static Site Generator
 - **Language**: [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - **Forms**: [@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms) - Form styling
 - **Icons**: [Lucide Astro](https://lucide.dev/) - Beautiful icon library
 - **Animations**: [AOS](https://michalsnik.github.io/aos/) - Animate On Scroll library
+
+### Backend (Netlify Functions)
+
+- **Runtime**: Node.js serverless functions
 - **Email**: [Nodemailer](https://nodemailer.com/) - Email sending service
-- **Security**:
-  - [Rate Limiter Flexible](https://github.com/animir/node-rate-limiter-flexible) - Rate limiting
-  - [DOMPurify](https://github.com/cure53/DOMPurify) - HTML sanitization
-  - [Validator](https://github.com/validatorjs/validator.js/) - Input validation
+- **Security**: [Rate Limiter Flexible](https://github.com/animir/node-rate-limiter-flexible) - Rate limiting
+- **Deployment**: [Netlify](https://netlify.com/) - Static hosting + serverless functions
 
 ## 🧞 Commands
 
@@ -122,13 +127,12 @@ All commands are run from the root of the project using Yarn:
 
 ## 📧 Contact Form Setup
 
-The contact form includes enterprise-level security and requires email configuration. See [CONTACT_SETUP.md](./CONTACT_SETUP.md) for detailed setup instructions.
+The contact form uses Netlify Functions for secure server-side processing. You'll need to configure environment variables in your Netlify dashboard.
 
-### Quick Email Setup (Gmail)
+### Environment Variables Setup
 
-1. **Enable 2-Factor Authentication** on your Gmail account
-2. **Generate App Password**: Google Account > Security > 2-Step Verification > App passwords
-3. **Update .env file**:
+1. **Go to Netlify Dashboard** → Your Site → Site Settings → Environment Variables
+2. **Add the following variables**:
 
    ```env
    SMTP_HOST=smtp.gmail.com
@@ -139,51 +143,88 @@ The contact form includes enterprise-level security and requires email configura
    SMTP_TO=youremail@gmail.com
    ```
 
+### Gmail Setup (Recommended)
+
+1. **Enable 2-Factor Authentication** on your Gmail account
+2. **Generate App Password**: Google Account → Security → 2-Step Verification → App passwords
+3. **Use the App Password** as `SMTP_PASS` (not your regular password)
+
+### Other Email Providers
+
+**Outlook/Hotmail:**
+
+```env
+SMTP_HOST=smtp-mail.outlook.com
+SMTP_PORT=587
+```
+
+**Yahoo Mail:**
+
+```env
+SMTP_HOST=smtp.mail.yahoo.com
+SMTP_PORT=587
+```
+
+**Custom SMTP:**
+
+```env
+SMTP_HOST=mail.yourdomain.com
+SMTP_PORT=587
+```
+
 ## 🔒 Security Features
+
+### 🛡️ Contact Form Security
 
 - **Rate Limiting**: 5 requests per 15 minutes per IP address
 - **Honeypot Protection**: Hidden fields to catch spam bots
-- **Input Sanitization**: All form data sanitized to prevent XSS
+- **Input Sanitization**: All form data sanitized to prevent XSS attacks
 - **Email Validation**: Comprehensive format and domain validation
-- **CSRF Protection**: Form validation prevents cross-site requests
+- **Real-time Validation**: Client-side validation with server-side verification
 - **Error Handling**: Secure error messages that don't expose sensitive data
+
+### 🔐 Function Security
+
+- **Environment Variables**: Sensitive data stored securely in Netlify
+- **CORS Protection**: Proper cross-origin request handling
+- **Input Validation**: Multiple layers of data validation
+- **Spam Detection**: Advanced bot detection mechanisms
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### Netlify (Recommended)
 
-```bash
-# Install Vercel CLI
-npm i -g vercel
+This project is optimized for Netlify deployment with automatic builds and serverless functions.
 
-# Deploy
-vercel --prod
-```
+#### Option 1: Git Integration (Recommended)
 
-### Netlify
+1. **Connect your repository** to Netlify
+2. **Set build command**: `yarn build`
+3. **Set publish directory**: `dist`
+4. **Add environment variables** in Site Settings → Environment Variables
+5. **Deploy automatically** on every git push
+
+#### Option 2: Manual Deploy
 
 ```bash
 # Install Netlify CLI
 npm install -g netlify-cli
+
+# Login to Netlify
+netlify login
 
 # Build and deploy
 yarn build
 netlify deploy --prod --dir=dist
 ```
 
-### Manual Deployment
+### Other Platforms
 
-```bash
-# Build for production
-yarn build
+**Note**: For other platforms, you'll need to set up the contact form differently as Netlify Functions are platform-specific.
 
-# Upload the dist/ folder to your hosting provider
-```
-
-**Important**: Set environment variables in your deployment platform:
-
-- Vercel: Project Settings > Environment Variables
-- Netlify: Site Settings > Environment Variables
+**Vercel**: Would require converting the Netlify function to Vercel API routes  
+**Cloudflare Pages**: Would require converting to Cloudflare Workers  
+**Traditional Hosting**: Would need a separate backend service for the contact form
 
 ## 🤝 Contributing
 
@@ -200,8 +241,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - **Live Site**: [ruhtouch.com](https://ruhtouch.com) _(replace with actual URL)_
-- **Documentation**: [Astro Docs](https://docs.astro.build)
-- **Contact Setup**: [CONTACT_SETUP.md](./CONTACT_SETUP.md)
+- **Astro Documentation**: [docs.astro.build](https://docs.astro.build)
+- **Netlify Functions**: [docs.netlify.com/functions](https://docs.netlify.com/functions/)
+- **Tailwind CSS**: [tailwindcss.com](https://tailwindcss.com/)
 
 ## 📞 Support
 

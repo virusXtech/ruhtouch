@@ -1,11 +1,7 @@
 [build]
-  command = "yarn build"
+  command = "npm run build"
   publish = "dist"
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/entry"
-  status = 200
+  functions = "netlify/functions"
 
 [[redirects]]
   from = "/*"
@@ -29,3 +25,7 @@
 [build.processing.js]
   bundle = true
   minify = true
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["nodemailer", "rate-limiter-flexible"]
