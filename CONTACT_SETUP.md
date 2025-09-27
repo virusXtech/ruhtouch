@@ -40,10 +40,10 @@ cp .env.example .env
    ```env
    SMTP_HOST=smtp.gmail.com
    SMTP_PORT=587
-   SMTP_USER=your-email@gmail.com
-   SMTP_PASS=your-16-character-app-password
-   SMTP_FROM=your-email@gmail.com
-   SMTP_TO=your-email@gmail.com
+   SMTP_USER=youremail@gmail.com
+   SMTP_PASS=xxxx-xxxx-xxxx-xxxx
+   SMTP_FROM=youremail@gmail.com
+   SMTP_TO=youremail@gmail.com
    ```
 
 ### Step 3: Other Email Providers
@@ -53,8 +53,8 @@ cp .env.example .env
 ```env
 SMTP_HOST=smtp-mail.outlook.com
 SMTP_PORT=587
-SMTP_USER=your-email@outlook.com
-SMTP_PASS=your-password
+SMTP_USER=youremail@outlook.com
+SMTP_PASS=your-password-here
 ```
 
 #### Yahoo Mail
@@ -62,17 +62,17 @@ SMTP_PASS=your-password
 ```env
 SMTP_HOST=smtp.mail.yahoo.com
 SMTP_PORT=587
-SMTP_USER=your-email@yahoo.com
-SMTP_PASS=your-app-password
+SMTP_USER=youremail@yahoo.com
+SMTP_PASS=your-app-password-here
 ```
 
 #### Custom SMTP
 
 ```env
-SMTP_HOST=mail.your-domain.com
+SMTP_HOST=mail.yourdomain.com
 SMTP_PORT=587
-SMTP_USER=your-email@your-domain.com
-SMTP_PASS=your-password
+SMTP_USER=youremail@yourdomain.com
+SMTP_PASS=your-password-here
 ```
 
 ## Rate Limiting Configuration

@@ -1,7 +1,5 @@
 # 🌿 RuhTouch - Mental Health & Spiritual Wellness Platform
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/df745c2a-f6a8-4008-93cb-e7add3579136/deploy-status)](https://app.netlify.com/projects/ruhtouch/deploys)
-
 A modern, responsive website for mental health and spiritual counseling services, built with Astro, TypeScript, and Tailwind CSS. Features a secure contact form with advanced spam protection and email notifications.
 
 ## ✨ Features
@@ -135,10 +133,10 @@ The contact form includes enterprise-level security and requires email configura
    ```env
    SMTP_HOST=smtp.gmail.com
    SMTP_PORT=587
-   SMTP_USER=your-email@gmail.com
-   SMTP_PASS=your-16-character-app-password
-   SMTP_FROM=your-email@gmail.com
-   SMTP_TO=your-email@gmail.com
+   SMTP_USER=youremail@gmail.com
+   SMTP_PASS=xxxx-xxxx-xxxx-xxxx
+   SMTP_FROM=youremail@gmail.com
+   SMTP_TO=youremail@gmail.com
    ```
 
 ## 🔒 Security Features
@@ -209,7 +207,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support and questions:
 
-- 📧 Email: [faisalismoodie@gmail.com](mailto:faisalismoodie@gmail.com)
+- 📧 Email: [Contact Email](mailto:contact@example.com)
 - 🐛 Issues: [GitHub Issues](https://github.com/virusXtech/ruhtouch/issues)
 
 ---
