@@ -16,12 +16,19 @@
     "fix": "yarn lint:fix && yarn format"
   },
   "dependencies": {
+    "@astrojs/node": "^9.4.4",
     "@astrojs/tailwind": "^5.1.0",
     "@lucide/astro": "^0.507.0",
     "@tailwindcss/forms": "^0.5.7",
+    "@types/nodemailer": "^7.0.1",
+    "@types/validator": "^13.15.3",
     "astro": "^5.2.5",
+    "isomorphic-dompurify": "^2.28.0",
+    "nodemailer": "^7.0.6",
+    "rate-limiter-flexible": "^8.0.1",
     "swiper": "^11.2.6",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "validator": "^13.15.15"
   },
   "packageManager": "yarn@4.9.1",
   "engines": {
