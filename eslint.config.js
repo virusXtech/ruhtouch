@@ -56,4 +56,21 @@ export default [
       'no-var': 'error',
     },
   },
+
+  // Node environment for Netlify Functions
+  {
+    files: ['netlify/functions/**/*.js'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+        module: 'readonly',
+        __dirname: 'readonly',
+        require: 'readonly',
+      },
+    },
+    rules: {
+      'no-console': 'off',
+    },
+  },
 ];

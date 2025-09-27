@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
+import { renderContactEmail } from './templates/contactEmail.js';
 
 // Rate limiter configuration
 const rateLimiter = new RateLimiterMemory({
@@ -170,52 +171,22 @@ export const handler = async (event, context) => {
     // Verify transporter
     await transporter.verify();
 
-    // Service labels
-    const serviceLabels = {
-      family: 'Family Counseling',
-      youth: 'Youth Intervention',
-      spiritual: 'Spiritual Therapy',
-      crisis: 'Crisis Intervention',
-      psychotherapy: 'Psychotherapy',
-      career: 'Career Counseling',
-    };
-
-    // Email content
-    const emailHtml = `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${sanitizedData.name}</p>
-      <p><strong>Email:</strong> ${sanitizedData.email}</p>
-      <p><strong>Phone:</strong> ${sanitizedData.phone || 'Not provided'}</p>
-      <p><strong>Service:</strong> ${serviceLabels[sanitizedData.service] || 'Not specified'}</p>
-      <p><strong>Message:</strong></p>
-      <p>${sanitizedData.message.replace(/\n/g, '<br>')}</p>
-      <hr>
-      <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
-      <p><small>Client IP: ${clientIP}</small></p>
-    `;
-
-    const emailText = `
-New Contact Form Submission
-
-Name: ${sanitizedData.name}
-Email: ${sanitizedData.email}
-Phone: ${sanitizedData.phone || 'Not provided'}
-Service: ${serviceLabels[sanitizedData.service] || 'Not specified'}
-
-Message:
-${sanitizedData.message}
-
----
-Submitted at: ${new Date().toLocaleString()}
-Client IP: ${clientIP}
-    `;
+    // Render email using template module
+    const {
+      subject,
+      html: emailHtml,
+      text: emailText,
+    } = renderContactEmail({
+      data: sanitizedData,
+      clientIP,
+    });
 
     // Send email
     const mailOptions = {
       from: `"${sanitizedData.name}" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
       to: process.env.SMTP_TO,
       replyTo: sanitizedData.email,
-      subject: `New Contact - RuhTouch from ${sanitizedData.name}`,
+      subject,
       html: emailHtml,
       text: emailText,
     };
