@@ -1,225 +1,225 @@
 ---
-
+const honeypotFieldName = import.meta.env.HONEYPOT_FIELD_NAME || 'website';
 ---
 
-<section id='contact' class='py-16 bg-white'>
-  <div class='max-w-3xl mx-auto px-4 sm:px-6 lg:px-8'>
+<section id="contact" class="py-16 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2
-      class='text-3xl font-arabic text-center text-emerald-900 mb-8'
-      data-aos='fade-up'
+      class="text-3xl font-arabic text-center text-emerald-900 mb-8"
+      data-aos="fade-up"
     >
       Get in Touch
     </h2>
     <p
-      class='text-center text-gray-600 mb-8'
-      data-aos='fade-up'
-      data-aos-delay='100'
+      class="text-center text-gray-600 mb-8"
+      data-aos="fade-up"
+      data-aos-delay="100"
     >
       Take the first step towards your mental and spiritual well-being. Schedule
       a consultation or ask any questions you may have.
     </p>
 
     <!-- Success/Error Messages -->
-    <div id='form-messages' class='mb-6 hidden'>
+    <div id="form-messages" class="mb-6 hidden">
       <div
-        id='success-message'
-        class='hidden bg-emerald-50 border border-emerald-200 rounded-lg p-6 mb-4'
+        id="success-message"
+        class="hidden bg-emerald-50 border border-emerald-200 rounded-lg p-6 mb-4"
       >
-        <div class='text-center'>
+        <div class="text-center">
           <svg
-            class='w-16 h-16 text-emerald-600 mx-auto mb-4'
-            fill='currentColor'
-            viewBox='0 0 20 20'
+            class="w-16 h-16 text-emerald-600 mx-auto mb-4"
+            fill="currentColor"
+            viewBox="0 0 20 20"
           >
             <path
-              fill-rule='evenodd'
-              d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
-              clip-rule='evenodd'></path>
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path>
           </svg>
-          <h3 class='text-xl font-semibold text-emerald-900 mb-2'>
+          <h3 class="text-xl font-semibold text-emerald-900 mb-2">
             Message Sent Successfully!
           </h3>
-          <p class='text-emerald-800 font-medium mb-4' id='success-text'></p>
-          <p class='text-emerald-700 text-sm mb-6'>
+          <p class="text-emerald-800 font-medium mb-4" id="success-text"></p>
+          <p class="text-emerald-700 text-sm mb-6">
             We've received your message and will get back to you as soon as
             possible. Thank you for reaching out to us!
           </p>
           <button
-            id='send-another-btn'
-            class='inline-flex items-center justify-center rounded-full border border-emerald-600 bg-white py-2 px-6 text-emerald-600 hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all hover:scale-105 text-sm font-medium'
+            id="send-another-btn"
+            class="inline-flex items-center justify-center rounded-full border border-emerald-600 bg-white py-2 px-6 text-emerald-600 hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all hover:scale-105 text-sm font-medium"
           >
             <svg
-              class='w-4 h-4 mr-2'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
+              class="w-4 h-4 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
               <path
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
-                d='M12 6v6m0 0v6m0-6h6m-6 0H6'></path>
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
             </svg>
             Send Another Message
           </button>
         </div>
       </div>
       <div
-        id='error-message'
-        class='hidden bg-red-50 border border-red-200 rounded-lg p-4 mb-4'
+        id="error-message"
+        class="hidden bg-red-50 border border-red-200 rounded-lg p-4 mb-4"
       >
-        <div class='flex items-center'>
+        <div class="flex items-center">
           <svg
-            class='w-5 h-5 text-red-600 mr-2'
-            fill='currentColor'
-            viewBox='0 0 20 20'
+            class="w-5 h-5 text-red-600 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
           >
             <path
-              fill-rule='evenodd'
-              d='M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z'
-              clip-rule='evenodd'></path>
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+              clip-rule="evenodd"></path>
           </svg>
-          <span class='text-red-800 font-medium' id='error-text'></span>
+          <span class="text-red-800 font-medium" id="error-text"></span>
         </div>
       </div>
     </div>
 
-    <div id='form-container' class='transition-all duration-300'>
+    <div id="form-container" class="transition-all duration-300">
       <form
-        id='contact-form'
-        class='space-y-6'
-        data-aos='fade-up'
-        data-aos-delay='200'
+        id="contact-form"
+        class="space-y-6"
+        data-aos="fade-up"
+        data-aos-delay="200"
         novalidate
       >
         <!-- Honeypot field (hidden from users, bots might fill it) -->
         <input
-          type='text'
-          name='website'
-          style='position: absolute; left: -9999px; opacity: 0; pointer-events: none;'
-          tabindex='-1'
-          autocomplete='off'
-          aria-hidden='true'
+          type="text"
+          name={honeypotFieldName}
+          style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
         />
 
-        <div class='grid grid-cols-1 gap-6 sm:grid-cols-2'>
-          <div class='transform transition-all focus-within:scale-[1.01]'>
-            <label for='name' class='block text-sm font-medium text-gray-700'
-              >Name <span class='text-red-500'>*</span></label
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div class="transform transition-all focus-within:scale-[1.01]">
+            <label for="name" class="block text-sm font-medium text-gray-700"
+              >Name <span class="text-red-500">*</span></label
             >
             <input
-              type='text'
-              id='name'
-              name='name'
+              type="text"
+              id="name"
+              name="name"
               required
-              minlength='2'
-              maxlength='100'
+              minlength="2"
+              maxlength="100"
               pattern="[A-Za-z\s'-]+"
-              class='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500'
-              autocomplete='name'
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
+              autocomplete="name"
             />
             <div
-              class='invalid-feedback text-red-600 text-sm mt-1 hidden'
-              id='name-error'
+              class="invalid-feedback text-red-600 text-sm mt-1 hidden"
+              id="name-error"
             >
             </div>
           </div>
-          <div class='transform transition-all focus-within:scale-[1.01]'>
-            <label for='email' class='block text-sm font-medium text-gray-700'
-              >Email <span class='text-red-500'>*</span></label
+          <div class="transform transition-all focus-within:scale-[1.01]">
+            <label for="email" class="block text-sm font-medium text-gray-700"
+              >Email <span class="text-red-500">*</span></label
             >
             <input
-              type='email'
-              id='email'
-              name='email'
+              type="email"
+              id="email"
+              name="email"
               required
-              maxlength='254'
-              class='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500'
-              autocomplete='email'
+              maxlength="254"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
+              autocomplete="email"
             />
             <div
-              class='invalid-feedback text-red-600 text-sm mt-1 hidden'
-              id='email-error'
+              class="invalid-feedback text-red-600 text-sm mt-1 hidden"
+              id="email-error"
             >
             </div>
           </div>
         </div>
-        <div class='transform transition-all focus-within:scale-[1.01]'>
-          <label for='phone' class='block text-sm font-medium text-gray-700'
+        <div class="transform transition-all focus-within:scale-[1.01]">
+          <label for="phone" class="block text-sm font-medium text-gray-700"
             >Phone Number</label
           >
           <input
-            type='tel'
-            id='phone'
-            name='phone'
-            class='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500'
+            type="tel"
+            id="phone"
+            name="phone"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
           />
         </div>
-        <div class='transform transition-all focus-within:scale-[1.01]'>
-          <label for='service' class='block text-sm font-medium text-gray-700'
+        <div class="transform transition-all focus-within:scale-[1.01]">
+          <label for="service" class="block text-sm font-medium text-gray-700"
             >Service Interested In</label
           >
           <select
-            id='service'
-            name='service'
-            class='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500'
+            id="service"
+            name="service"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
           >
-            <option value=''>Select a service</option>
-            <option value='family'>Family Counseling</option>
-            <option value='youth'>Youth Intervention</option>
-            <option value='spiritual'>Spiritual Therapy</option>
-            <option value='crisis'>Crisis Intervention</option>
-            <option value='psychotherapy'>Psychotherapy</option>
-            <option value='career'>Career Counseling</option>
+            <option value="">Select a service</option>
+            <option value="family">Family Counseling</option>
+            <option value="youth">Youth Intervention</option>
+            <option value="individual">Individual Counseling</option>
+            <option value="crisis">Crisis Intervention</option>
+            <option value="stress">Stress Management</option>
+            <option value="couple">Couple and Marital Counseling</option>
           </select>
         </div>
-        <div class='transform transition-all focus-within:scale-[1.01]'>
-          <label for='message' class='block text-sm font-medium text-gray-700'
-            >Message <span class='text-red-500'>*</span></label
+        <div class="transform transition-all focus-within:scale-[1.01]">
+          <label for="message" class="block text-sm font-medium text-gray-700"
+            >Message <span class="text-red-500">*</span></label
           >
           <textarea
-            id='message'
-            name='message'
+            id="message"
+            name="message"
             required
-            minlength='10'
-            maxlength='2000'
-            rows='4'
-            class='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500'
-            placeholder='Please describe how we can help you...'></textarea>
+            minlength="10"
+            maxlength="2000"
+            rows="4"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
+            placeholder="Please describe how we can help you..."></textarea>
           <div
-            class='invalid-feedback text-red-600 text-sm mt-1 hidden'
-            id='message-error'
+            class="invalid-feedback text-red-600 text-sm mt-1 hidden"
+            id="message-error"
           >
           </div>
-          <div class='text-right text-xs text-gray-500 mt-1'>
-            <span id='char-count'>0</span>/2000 characters
+          <div class="text-right text-xs text-gray-500 mt-1">
+            <span id="char-count">0</span>/2000 characters
           </div>
         </div>
-        <div class='text-center'>
+        <div class="text-center">
           <button
-            type='submit'
-            id='submit-btn'
-            class='inline-flex justify-center rounded-full border border-transparent bg-emerald-600 py-3 px-8 text-white hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed'
+            type="submit"
+            id="submit-btn"
+            class="inline-flex justify-center rounded-full border border-transparent bg-emerald-600 py-3 px-8 text-white hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <span id='submit-text'>Send Message</span>
+            <span id="submit-text">Send Message</span>
             <svg
-              id='loading-spinner'
-              class='hidden animate-spin ml-2 h-5 w-5 text-white'
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
+              id="loading-spinner"
+              class="hidden animate-spin ml-2 h-5 w-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
             >
               <circle
-                class='opacity-25'
-                cx='12'
-                cy='12'
-                r='10'
-                stroke='currentColor'
-                stroke-width='4'></circle>
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"></circle>
               <path
-                class='opacity-75'
-                fill='currentColor'
-                d='m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
+                class="opacity-75"
+                fill="currentColor"
+                d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
               ></path>
             </svg>
           </button>
@@ -229,7 +229,9 @@
   </div>
 </section>
 
-<script lang='js'>
+<script lang="js">
+  const honeypotFieldName = '${honeypotFieldName}';
+
   document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -376,7 +378,7 @@
           phone: formData.get('phone'),
           service: formData.get('service'),
           message: formData.get('message'),
-          honeypot: formData.get('website'), // honeypot field
+          honeypot: formData.get(honeypotFieldName), // honeypot field
         };
 
         const response = await fetch('/.netlify/functions/contact', {
