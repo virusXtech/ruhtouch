@@ -3,16 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
+import TherapyTopics from '../components/TherapyTopics.astro';
 import About from '../components/About.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import services from '../data/services';
+import { faqs } from '../data/seoContent';
 import siteConfig from '../data/site';
 
-const pageTitle = 'Online Counseling and Therapy Services | RuhTouch';
+const pageTitle =
+  'Online Therapy, Counseling, and Therapist Support | RuhTouch';
 const pageDescription =
-  'RuhTouch provides remote counseling and online therapy with support for individuals, couples, families, youth, stress management, and crisis intervention.';
+  'RuhTouch provides online therapy and remote counseling with support for anxiety, stress, relationships, family concerns, youth, crisis intervention, and couples counseling.';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -44,20 +47,32 @@ const structuredData = {
       knowsAbout: services.map(service => service.title),
       serviceType: services.map(service => service.title),
     },
+    {
+      '@type': 'FAQPage',
+      '@id': `${siteConfig.siteUrl}/#faq`,
+      mainEntity: faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
   ],
 };
 ---
 
-<Layout
-  title={pageTitle}
-  description={pageDescription}
-  canonicalPath="/"
->
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<Layout title={pageTitle} description={pageDescription} canonicalPath="/">
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
   <Header />
   <main>
     <Hero />
     <Services />
+    <TherapyTopics />
     <About />
     <Testimonials />
     <Contact />

@@ -1,9 +1,9 @@
 const siteConfig = {
   siteUrl: 'https://ruhtouch.com',
   name: 'RuhTouch',
-  defaultTitle: 'RuhTouch | Online Counseling and Therapy',
+  defaultTitle: 'RuhTouch | Online Therapy, Counseling, and Therapist Support',
   defaultDescription:
-    'RuhTouch offers online counseling and therapy, including individual counseling, family counseling, youth intervention, crisis support, stress management, and couples counseling.',
+    'RuhTouch offers online therapy and counseling with support for anxiety, stress, relationships, family concerns, youth intervention, crisis support, and couples counseling.',
   phone: '+91 98747 93884',
   email: 'psychologistfarha@gmail.com',
   country: 'India',

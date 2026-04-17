@@ -19,7 +19,10 @@ const {
   type = 'website',
 } = Astro.props;
 
-const canonicalUrl = new URL(canonicalPath ?? Astro.url.pathname, siteConfig.siteUrl);
+const canonicalUrl = new URL(
+  canonicalPath ?? Astro.url.pathname,
+  siteConfig.siteUrl
+);
 const imageUrl = new URL(image, siteConfig.siteUrl);
 const robotsContent = noindex
   ? 'noindex,nofollow'
@@ -55,7 +58,11 @@ const robotsContent = noindex
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl.href} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
     <link rel="preconnect" href="https://unpkg.com" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link
