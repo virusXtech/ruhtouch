@@ -7,9 +7,53 @@ import About from '../components/About.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import services from '../data/services';
+import siteConfig from '../data/site';
+
+const pageTitle = 'Online Counseling and Therapy Services | RuhTouch';
+const pageDescription =
+  'RuhTouch provides remote counseling and online therapy with support for individuals, couples, families, youth, stress management, and crisis intervention.';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.siteUrl}/#website`,
+      url: `${siteConfig.siteUrl}/`,
+      name: siteConfig.name,
+      description: pageDescription,
+      inLanguage: 'en-IN',
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${siteConfig.siteUrl}/#organization`,
+      name: siteConfig.name,
+      image: siteConfig.heroImage,
+      url: `${siteConfig.siteUrl}/`,
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
+      areaServed: siteConfig.serviceArea,
+      availableChannel: {
+        '@type': 'ServiceChannel',
+        serviceUrl: `${siteConfig.siteUrl}/#contact`,
+        availableLanguage: 'en',
+      },
+      description: pageDescription,
+      priceRange: '$$',
+      knowsAbout: services.map(service => service.title),
+      serviceType: services.map(service => service.title),
+    },
+  ],
+};
 ---
 
-<Layout>
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <Header />
   <main>
     <Hero />

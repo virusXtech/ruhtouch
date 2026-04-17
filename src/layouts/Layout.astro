@@ -1,13 +1,33 @@
 ---
+import siteConfig from '../data/site';
+
 interface Props {
   title?: string;
+  description?: string;
+  canonicalPath?: string;
+  image?: string;
+  noindex?: boolean;
+  type?: 'website' | 'article';
 }
 
-const { title = 'RuhTouch - Counseling & Therapy' } = Astro.props;
+const {
+  title = siteConfig.defaultTitle,
+  description = siteConfig.defaultDescription,
+  canonicalPath,
+  image = siteConfig.heroImage,
+  noindex = false,
+  type = 'website',
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath ?? Astro.url.pathname, siteConfig.siteUrl);
+const imageUrl = new URL(image, siteConfig.siteUrl);
+const robotsContent = noindex
+  ? 'noindex,nofollow'
+  : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en-IN" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -18,14 +38,29 @@ const { title = 'RuhTouch - Counseling & Therapy' } = Astro.props;
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl.href} />
+    <meta name="robots" content={robotsContent} />
+    <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.name} />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:image" content={imageUrl.href} />
+    <meta property="og:image:alt" content={title} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl.href} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://unpkg.com" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap"
       rel="stylesheet"
-    />
-    <meta
-      name="description"
-      content="Professional counseling and therapy services including family counseling, youth intervention, and stress management."
     />
   </head>
   <body class="min-h-screen bg-white">
