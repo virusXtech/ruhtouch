@@ -1,5 +1,7 @@
 # 🌿 RuhTouch - Mental Health & Spiritual Wellness Platform
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/32c87ae0-97c2-4a91-9f3b-684a19afa032/deploy-status)](https://app.netlify.com/projects/ruhtouch/deploys)
+
 A modern, responsive website for mental health and spiritual counseling services, built with Astro, TypeScript, and Tailwind CSS. Features a secure contact form with Netlify Functions for backend processing.
 
 ## ✨ Features
